@@ -31,7 +31,7 @@ module.exports = {
      * @optional
      */
     "styles":[
-        "./styles/generic-rest.less"
+        "./styles/generic_rest.less"
     ],
     /**
      * Provide custom component logic and template for rendering the integration details block.  If you do not
@@ -43,10 +43,10 @@ module.exports = {
      */
     "block": {
         "component": {
-            "file": "./components/generic-rest.js"
+            "file": "./components/generic_rest.js"
         },
         "template": {
-            "file": "./templates/generic-rest.hbs"
+            "file": "./templates/generic_rest.hbs"
         }
     },
     /**
