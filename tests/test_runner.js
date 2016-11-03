@@ -12,7 +12,7 @@
 let integration = require('../integration');
 
 let options = {
-    apiKey: '',
+    apiKey: ''
 };
 
 integration.doLookup([{
