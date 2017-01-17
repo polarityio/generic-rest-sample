@@ -89,7 +89,7 @@ module.exports = {
              */
             "default"     : "",
             /**
-             * The type for this option.  Can be either "string", "boolean", or "password"
+             * The type for this option.  Can be either "text", "boolean", or "password"
              *
              * @property type
              * @type String
@@ -98,20 +98,23 @@ module.exports = {
             /**
              * If `true`, non-admin users can edit the value of this option and the option will be stored on a
              * per-user basis.  If `false`, the option will be server wide.  Note that for this setting to have
-             * an effect, the property `admin-only` must be set to false.
+             * an effect, the property `admin-only` must be set to false.   Note that this provides the default value
+             * which can then be overridden by an admin through the integrations web interface.
              *
              * @property user-can-edit
              * @type Boolean
              */
-            "user-can-edit" : true,
+            "userCanEdit" : true,
             /**
              * If set to true, the setting can only be viewed by admins.  For all other users the setting will not appear.
-             * Note that if `admin-only` is set to true the value of `user-can-edit` is not applicable.
+             * Note that if `admin-only` is set to true the value of `user-can-edit` is not applicable.  Note that this
+             * provides the default value which can then be overridden by an admin through the integrations
+             * web interface.
              *
              * @property admin-only
              * @type Boolean
              */
-            "admin-only"    : false
+            "adminOnly"    : false
         }
     ]
 };
