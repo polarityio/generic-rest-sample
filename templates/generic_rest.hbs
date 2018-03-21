@@ -12,12 +12,26 @@ object we returned from our doLookup method inside `integration.js`
     </tr>
     </thead>
     <tbody>
-    {{#each-in block.data.details as |key value|}}
+    {{#each-in block.data.details.args as |key value|}}
         <tr>
-            <td>{{{key}}}</td>
-            <td>{{{value}}}</td>
+            <td>{{key}}</td>
+            <td>{{value}}</td>
         </tr>
     {{/each-in}}
+    {{#each-in block.data.details.headers as |key value|}}
+        <tr>
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+        </tr>
+    {{/each-in}}
+    <tr>
+        <td>origin</td>
+        <td>{{block.data.details.origin}}</td>
+    </tr>
+    <tr>
+        <td>url</td>
+        <td>{{block.data.details.url}}</td>
+    </tr>
     </tbody>
 </table>
 
