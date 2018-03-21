@@ -5,7 +5,7 @@ module.exports = {
      * @type String
      * @required
      */
-    "name": "Generic REST",
+    name: "Generic REST Sample",
     /**
      * The acronym that appears in the notification window when information from this integration
      * is displayed.  Note that the acronym is included as part of each "tag" in the summary information
@@ -15,14 +15,15 @@ module.exports = {
      * @type String
      * @required
      */
-    "acronym":"REST",
+    acronym: "REST",
+    entityTypes: ['IPv4'],
     /**
      * Description for this integration which is displayed in the Polarity integrations user interface
      *
      * @type String
      * @optional
      */
-    "description": "This is a sample generic REST integration",
+    description: "This is a sample generic REST integration used for training",
     /**
      * An array of style files (css or less) that will be included for your integration. Any styles specified in
      * the below files can be used in your custom template.
@@ -30,8 +31,8 @@ module.exports = {
      * @type Array
      * @optional
      */
-    "styles":[
-        "./styles/generic-rest.less"
+    styles: [
+        "./styles/generic_rest.less"
     ],
     /**
      * Provide custom component logic and template for rendering the integration details block.  If you do not
@@ -41,12 +42,12 @@ module.exports = {
      * @type Object
      * @optional
      */
-    "block": {
-        "component": {
-            "file": "./components/generic-rest.js"
+    block: {
+        component: {
+            file: "./components/generic_rest.js"
         },
-        "template": {
-            "file": "./templates/generic-rest.hbs"
+        template: {
+            file: "./templates/generic_rest.hbs"
         }
     },
     /**
@@ -56,7 +57,7 @@ module.exports = {
      * @type Array
      * @optional
      */
-    "options":[
+    options: [
         {
             /**
              * A Unique name for the option.  Should be camelcased (lowercase first letter, uppercase letters for
@@ -65,21 +66,21 @@ module.exports = {
              * @property key
              * @type String             *
              */
-            "key"         : "apiKey",
+            key: "apiKey",
             /**
              * Human Readable name for the option which will be displayed in the Polarity user interface
              *
              * @property name
              * @type String
              */
-            "name"        : "API Key",
+            name: "API Key",
             /**
              * A short description for what the option does.  This description is displayed in the user interface
              *
              * @property description
              * @type String
              */
-            "description" : "This is the authentication key for your REST call",
+            description: "This is the authentication key for your REST call",
             /**
              * The default value for the option.  Note this value can be either a String or Boolean depending on
              * the @type specified by the `type` property.
@@ -87,31 +88,34 @@ module.exports = {
              * @property default
              * @type String|Boolean
              */
-            "default"     : "",
+            default: "",
             /**
-             * The type for this option.  Can be either "string", "boolean", or "password"
+             * The type for this option.  Can be either "text", "boolean", or "password"
              *
              * @property type
              * @type String
              */
-            "type"        : "text",
+            type: "text",
             /**
              * If `true`, non-admin users can edit the value of this option and the option will be stored on a
              * per-user basis.  If `false`, the option will be server wide.  Note that for this setting to have
-             * an effect, the property `admin-only` must be set to false.
+             * an effect, the property `admin-only` must be set to false.   Note that this provides the default value
+             * which can then be overridden by an admin through the integrations web interface.
              *
              * @property user-can-edit
              * @type Boolean
              */
-            "user-can-edit" : true,
+            userCanEdit: true,
             /**
              * If set to true, the setting can only be viewed by admins.  For all other users the setting will not appear.
-             * Note that if `admin-only` is set to true the value of `user-can-edit` is not applicable.
+             * Note that if `admin-only` is set to true the value of `user-can-edit` is not applicable.  Note that this
+             * provides the default value which can then be overridden by an admin through the integrations
+             * web interface.
              *
              * @property admin-only
              * @type Boolean
              */
-            "admin-only"    : false
+            adminOnly: false
         }
     ]
 };
