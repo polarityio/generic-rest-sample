@@ -1,37 +1,10 @@
+<button {{action "incrementCounter"}}>Click Me!</button>
+{{#if message}}
+<div>
+    {{message}}
+</div>
+{{/if}}
 {{!--
-Note that the below template is rendered once for each entity returned by the doLookup method.  This renders
-the "Detail Block" within the notification window which is the data you see when clicking on an entity "Summary Block".
-In this template we are iterating over all the key-value pairs in `block.data.details` which maps directly back to
-object we returned from our doLookup method inside `integration.js`
+This is helper which takes the details data returned from the server and renders it as a table
 --}}
-<table style="width: 100%">
-    <thead>
-    <tr>
-        <th>Property</th>
-        <th>Value</th>
-    </tr>
-    </thead>
-    <tbody>
-    {{#each-in block.data.details.args as |key value|}}
-        <tr>
-            <td>{{key}}</td>
-            <td>{{value}}</td>
-        </tr>
-    {{/each-in}}
-    {{#each-in block.data.details.headers as |key value|}}
-        <tr>
-            <td>{{key}}</td>
-            <td>{{value}}</td>
-        </tr>
-    {{/each-in}}
-    <tr>
-        <td>origin</td>
-        <td>{{block.data.details.origin}}</td>
-    </tr>
-    <tr>
-        <td>url</td>
-        <td>{{block.data.details.url}}</td>
-    </tr>
-    </tbody>
-</table>
-
+{{object-to-table block.data.details}}
