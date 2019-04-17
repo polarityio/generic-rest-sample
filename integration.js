@@ -1,10 +1,11 @@
 'use strict';
 
-let request = require('request');
-let async = require('async');
-let Logger;
+const request = require('request');
+const async = require('async');
 
 const BASE_URI = 'http://httpbin.org/get';
+
+let Logger;
 
 /**
  * The startup method is called once when the integration is first loaded by the server.  It can be used
@@ -44,16 +45,14 @@ function doLookup(entities, options, cb) {
 }
 
 function _lookupEntity(entityObj, options, cb) {
-  let uri = BASE_URI;
-
-  if (options.apiKey.length > 0) {
-    uri += '?apiKey=' + options.apiKey;
-  }
-
   request(
     {
-      uri: uri,
+      uri: BASE_URI,
       method: 'GET',
+      // include our apikey as a query parameter on the request taken from the user options
+      qs: {
+        apiKey: options.apiKey
+      },
       json: true
     },
     function(err, response, body) {
