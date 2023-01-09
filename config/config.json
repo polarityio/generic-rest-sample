@@ -1,0 +1,30 @@
+{
+  "name": "Generic REST Sample",
+  "acronym": "REST",
+  "entityTypes": [
+    "IPv4"
+  ],
+  "description": "This is a sample generic REST integration used for training",
+  "styles": [
+    "./styles/generic_rest.less"
+  ],
+  "block": {
+    "component": {
+      "file": "./components/generic_rest.js"
+    },
+    "template": {
+      "file": "./templates/generic_rest.hbs"
+    }
+  },
+  "options": [
+    {
+      "key": "apiKey",
+      "name": "API Key",
+      "description": "This is the authentication key for your REST call",
+      "default": "",
+      "type": "text",
+      "userCanEdit": true,
+      "adminOnly": false
+    }
+  ]
+}
