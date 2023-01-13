@@ -1,8 +1,8 @@
 {
-  "main": "./integration.js",
   "name": "GenericREST",
+  "version": "3.0.1",
+  "main": "./integration.js",
   "description": "Generic REST Integration",
-  "version": "3.0.0",
   "private": true,
   "dependencies": {
     "request": "^2.88.0",
