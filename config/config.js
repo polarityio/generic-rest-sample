@@ -1,5 +1,10 @@
 module.exports = {
   /**
+   * The UUID is only required for integrations that will be released via the Polarity Integration store.
+   * It is not required and should not be included for custom integrations.
+   */
+  polarityIntegrationUuid: 'a79f3010-c6b2-11ee-bf45-dff4364b7a03',
+  /**
    * Name of the integration which is displayed in the Polarity integrations user interface
    *
    * @type String
