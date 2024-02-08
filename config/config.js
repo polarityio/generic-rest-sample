@@ -17,6 +17,7 @@ module.exports = {
      */
     acronym: "REST",
     entityTypes: ['IPv4'],
+    defaultColor: 'light-blue',
     /**
      * Description for this integration which is displayed in the Polarity integrations user interface
      *
