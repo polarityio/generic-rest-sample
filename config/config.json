@@ -1,0 +1,42 @@
+{
+  "polarityIntegrationUuid": "a79f3010-c6b2-11ee-bf45-dff4364b7a03",
+  "name": "Generic REST Sample",
+  "acronym": "REST",
+  "entityTypes": [
+    "IPv4"
+  ],
+  "defaultColor": "light-blue",
+  "description": "This is a sample generic REST integration used for training",
+  "logging": {
+    "level": "info"
+  },
+  "request": {
+    "cert": "",
+    "key": "",
+    "passphrase": "",
+    "ca": "",
+    "proxy": ""
+  },
+  "styles": [
+    "./styles/generic_rest.less"
+  ],
+  "block": {
+    "component": {
+      "file": "./components/generic_rest.js"
+    },
+    "template": {
+      "file": "./templates/generic_rest.hbs"
+    }
+  },
+  "options": [
+    {
+      "key": "apiKey",
+      "name": "API Key",
+      "description": "This is the authentication key for your REST call",
+      "default": "",
+      "type": "text",
+      "userCanEdit": true,
+      "adminOnly": false
+    }
+  ]
+}

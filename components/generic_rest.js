@@ -1,6 +1,7 @@
 'use strict';
 
 polarity.export = PolarityComponent.extend({
+    details: Ember.computed.alias('block.data.details'),
     message: '',
     actions: {
         // this action is triggered by the button in our template which calls the `incrementCounter` action

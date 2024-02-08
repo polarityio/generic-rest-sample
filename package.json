@@ -1,11 +1,11 @@
 {
-  "main": "./integration.js",
   "name": "GenericREST",
+  "version": "3.1.0",
+  "main": "./integration.js",
   "description": "Generic REST Integration",
-  "version": "3.0.0",
   "private": true,
   "dependencies": {
-    "request": "^2.88.0",
-    "async": "^2.6.2"
+    "postman-request": "^2.88.1-postman.33",
+    "async": "^3.2.5"
   }
 }

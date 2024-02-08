@@ -1,10 +1,24 @@
-<button {{action "incrementCounter"}}>Click Me!</button>
-{{#if message}}
+<h1 class="p-title">{{fa-icon icon="info-circle" fixedWidth=true}} Info</h1>
 <div>
-    {{message}}
+  <span class="p-key">Host:</span>
+  <span class="p-value">{{details.headers.Host}}</span>
 </div>
+<div>
+  <span class="p-key">Origin:</span>
+  <span class="p-value red-text">{{details.origin}}</span>
+</div>
+<div>
+  <span class="p-key">URL:</span>
+  <span class="p-value">{{details.url}}</span>
+</div>
+<div>
+  <span class="p-key">Accept:</span>
+  <span class="p-value red-text">{{details.headers.Accept}}</span>
+</div>
+
+<button {{action "incrementCounter"}} class="mt-2">Click Me!</button>
+{{#if message}}
+  <div class="mt-1">
+      {{message}}
+  </div>
 {{/if}}
-{{!--
-This is helper which takes the details data returned from the server and renders it as a table
---}}
-{{object-to-table block.data.details}}
