@@ -28,8 +28,8 @@ function doLookup(entities, options, cb) {
 
   async.each(
     entities,
-    function(entityObj, next) {
-      _lookupEntity(entityObj, options, function(err, result) {
+    function (entityObj, next) {
+      _lookupEntity(entityObj, options, function (err, result) {
         if (err) {
           next(err);
         } else {
@@ -38,67 +38,67 @@ function doLookup(entities, options, cb) {
         }
       });
     },
-    function(err) {
+    function (err) {
       cb(err, lookupResults);
     }
   );
 }
 
 function _lookupEntity(entityObj, options, cb) {
-  request(
-    {
-      uri: BASE_URI,
-      method: 'GET',
-      // include our apikey as a query parameter on the request taken from the user options
-      qs: {
-        apiKey: options.apiKey
-      },
-      json: true
+  const requestOptions = {
+    uri: BASE_URI,
+    method: 'GET',
+    qs: {
+      apiKey: options.apiKey
     },
-    function(err, response, body) {
-      // check for a request error
-      if (err) {
-        return cb({
-          detail: 'Error Making HTTP Request',
-          err: err
-        });
-      }
+    json: true
+  };
 
-      // If we get a 404 then cache a miss
-      if (response.statusCode === 404) {
-        return cb(null, {
-          entity: entityObj,
-          data: null // setting data to null indicates to the server that this entity lookup was a "miss"
-        });
-      }
-
-      if (response.statusCode !== 200) {
-        cb({
-          detail: `Unexpected HTTP Status Code Received ${response.statusCode}`,
-          debug: body
-        });
-        return;
-      }
-
-      // The lookup results returned is an array of lookup objects with the following format
-      cb(null, {
-        // Required: This is the entity object passed into the integration doLookup method
-        entity: entityObj,
-        // Required: An object containing everything you want passed to the template
-        data: {
-          // Required: These are the tags that are displayed in your template
-          summary: [body.origin],
-          // Data that you want to pass back to the notification window details block
-          details: body
-        }
+  request(requestOptions, function (err, response, body) {
+    // check for a network error
+    if (err) {
+      cb({
+        detail: 'Error Making Network Request',
+        err: err
       });
+      return;
     }
-  );
+
+    // If we get a 404 then cache a miss
+    if (response.statusCode === 404) {
+      cb(null, {
+        entity: entityObj,
+        data: null // setting data to null indicates to the server that this entity lookup was a "miss"
+      });
+      return;
+    }
+
+    if (response.statusCode !== 200) {
+      cb({
+        detail: `Unexpected HTTP Status Code Received ${response.statusCode}`,
+        debug: body
+      });
+      return;
+    }
+
+    // The lookup results returned is an array of lookup objects with the following format
+    cb(null, {
+      // Required: This is the entity object passed into the integration doLookup method
+      entity: entityObj,
+      // Required: An object containing everything you want passed to the template
+      data: {
+        // Required: These are the tags that are displayed in your template
+        summary: [body.origin],
+        // Data that you want to pass back to the notification window details block
+        details: body
+      }
+    });
+  });
 }
 
 function onDetails(lookupObject, options, cb) {
   // We're adding an artificial 3 second delay before we respond back to the onDetails request
-  setTimeout(function() {
+  setTimeout(function () {
     // Add some new information to our details
     lookupObject.data.details.newOnDetailsData = {
       key: 'This is some onDetails data'
@@ -113,6 +113,7 @@ function onDetails(lookupObject, options, cb) {
 }
 
 let messageCounter = 0;
+
 function onMessage(payload, options, cb) {
   switch (payload.type) {
     case 'COUNT_CLICKS':
@@ -128,8 +129,8 @@ function onMessage(payload, options, cb) {
 }
 
 module.exports = {
-  doLookup: doLookup,
-  startup: startup,
-  onDetails: onDetails,
-  onMessage: onMessage
+  doLookup,
+  startup,
+  onDetails,
+  onMessage
 };
