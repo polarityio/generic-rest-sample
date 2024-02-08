@@ -6,6 +6,9 @@
   ],
   "defaultColor": "light-blue",
   "description": "This is a sample generic REST integration used for training",
+  "logging": {
+    "level": "info"
+  },
   "styles": [
     "./styles/generic_rest.less"
   ],
