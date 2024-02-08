@@ -13,7 +13,8 @@
     "cert": "",
     "key": "",
     "passphrase": "",
-    "ca": ""
+    "ca": "",
+    "proxy": ""
   },
   "styles": [
     "./styles/generic_rest.less"

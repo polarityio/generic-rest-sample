@@ -34,7 +34,9 @@ module.exports = {
     // Provide the key passphrase if required.  Leave an empty string to ignore this option.
     passphrase: '',
     // Provide the Certificate Authority. Leave an empty string to ignore this option.
-    ca: ''
+    ca: '',
+    // Proxy string.  Can now be set directly from the Integration settings user interface.
+    proxy: ''
   },
   /**
    * An array of style files (css or less) that will be included for your integration. Any styles specified in
