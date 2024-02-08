@@ -26,6 +26,16 @@ module.exports = {
    */
   description: 'This is a sample generic REST integration used for training',
   logging: { level: 'info' },
+  request: {
+    // Provide the path to your certFile. Leave an empty string to ignore this option.
+    cert: '',
+    // Provide the path to your private key. Leave an empty string to ignore this option.
+    key: '',
+    // Provide the key passphrase if required.  Leave an empty string to ignore this option.
+    passphrase: '',
+    // Provide the Certificate Authority. Leave an empty string to ignore this option.
+    ca: ''
+  },
   /**
    * An array of style files (css or less) that will be included for your integration. Any styles specified in
    * the below files can be used in your custom template.

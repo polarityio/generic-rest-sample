@@ -9,6 +9,12 @@
   "logging": {
     "level": "info"
   },
+  "request": {
+    "cert": "",
+    "key": "",
+    "passphrase": "",
+    "ca": ""
+  },
   "styles": [
     "./styles/generic_rest.less"
   ],
