@@ -10,13 +10,6 @@
   "logging": {
     "level": "info"
   },
-  "request": {
-    "cert": "",
-    "key": "",
-    "passphrase": "",
-    "ca": "",
-    "proxy": ""
-  },
   "styles": [
     "./styles/generic_rest.less"
   ],
